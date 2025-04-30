@@ -29,6 +29,7 @@
 
       .content {
         padding-top: 50px;
+        /* margin: auto; */
       }
 
       #simpleText {
@@ -97,6 +98,11 @@
       #downloadBtn {
         margin-top: 15px;
       }
+
+      #cardToCapture {
+        padding: 20px;
+        background-color: #ffffff;
+      }
     </style>
   </head>
   <body>
@@ -115,12 +121,14 @@
           <textarea id="messageInput" class="words form-control" placeholder="Your message"></textarea>
         </div>
         <button type="button" class="btn btn-lg px-5 my-1" id="createBtn">Create My Message</button>
-        <div class="momCard p-2 p-3 text-start">
-          <h4>Dear Mom,</h4>
-          <p class="textContent" id="displayMessage">You are the best mom in the world! We love you always!</p>
-          <p class="textContentFrom my-1" id="displayName">- Your kids!</p>
+        <div class="momCard pb-2 text-start">
+          <div class="card-content" id="cardToCapture">
+            <h4>Dear Mom,</h4>
+            <p class="textContent" id="displayMessage">You are the best mom in the world! We love you always!</p>
+            <p class="textContentFrom my-1" id="displayName">- Your kids!</p>
+          </div>
           <div class="text-center">
-            <button id="downloadBtn" class="btn btn-lg px-5 mb-2">Download Message</button>
+            <button id="downloadBtn" class="btn btn-lg px-5 mb-3">Download Message</button>
           </div>
         </div>
         <div class="footer mt-3">Made with <i class="bi bi-heart-fill text-danger"></i> for the most precious mom</div>
@@ -148,9 +156,14 @@
       });
 
       document.getElementById("downloadBtn").addEventListener("click", function () {
-        const card = document.querySelector(".momCard");
+        const card = document.querySelector("#cardToCapture");
 
-        html2canvas(card).then((canvas) => {
+        html2canvas(card, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          logging: false,
+          useCORS: true
+        }).then((canvas) => {
           const link = document.createElement("a");
           link.download = "mothers-day-message.png";
           link.href = canvas.toDataURL("image/png");
