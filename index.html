@@ -174,13 +174,13 @@
     document.getElementById('suggestionBtn').addEventListener('click', function () {
       const prompt = "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja."
 
-      fetch("/generate-message", {
+      fetch("http://localhost:5500/chat/completions", {
         method: "POST",
         headers: {
-          "Content-Type:": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          prompt: prompt,
+          prompt: prompt
         })
       })
         .then(res => res.json())

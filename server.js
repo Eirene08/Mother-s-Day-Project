@@ -3,15 +3,13 @@ import express from 'express';
 import axios from 'axios';
 
 const app = express();
-const port = 3000;
+const port = 5500;
 
 app.use(express.json());
 
-app.post('/generate-message', async (req, res) => {
-    const prompt = req.body.prompt || "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja.";
-
+async function generateMessage(prompt) {
     try {
-        const response = await axios.post("https://api.deepseek.com", {
+        const response = await axios.post("https://api.deepseek.com/v1/chat/completions", {
             messages: [
                 {
                     role: "system",
@@ -19,40 +17,31 @@ app.post('/generate-message', async (req, res) => {
                 },
                 {
                     role: "user",
-                    content: "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja."
+                    content: prompt
                 }
             ],
-            model: "deepseek-chat",
-            frequency_penalty: 0,
-            max_tokens: 2048,
-            presence_penalty: 0,
-            response_format: {
-                type: "text"
-            },
-            stop: null,
-            stream: false,
-            stream_options: null,
-            temperature: 1,
-            top_p: 1,
-            tools: null,
-            tool_choice: "none",
-            logprobs: false,
-            top_logprobs: null
-
         }, {
             headers: {
-                "Authorization": "Bearer sk-ecebf4058eb244a48e665948a75e8808",
+                "Authorization": "Bearer sk-4dc49edb7df742fcba235616b925b4ad",
                 "Content-Type": "application/json",
             }
         });
 
-        const message = response.data?.choices?.[0]?.text || "Kasih sayangmu abadi, Ibu, pelita hidupku yang takkan pernah padam; Selamat Hari Ibu!";
-        res.json({ message });
+        return response.data?.choices?.[0]?.message?.content || "Kasih sayangmu abadi, Ibu, pelita hidupku yang takkan pernah padam; Selamat Hari Ibu!";
     } catch (error) {
         console.error("Error:", error);
-        res.status(500).json({
-            error: "AI Error coy"
-        });
+        throw new Error("AI Error coy");
+    }
+}
+
+app.post('/chat/completions', async (req, res) => {
+    const prompt = req.body.prompt || "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja.";
+    
+    try {
+        const message = await generateMessage(prompt);
+        res.json({ message });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
 });
 
@@ -62,7 +51,7 @@ app.listen(port, () => {
 
 const openai = new OpenAI({
     baseURL: 'https://api.deepseek.com',
-    apiKey: '<sk-ecebf4058eb244a48e665948a75e8808>',
+    apiKey: '<sk-4dc49edb7df742fcba235616b925b4ad>',
 });
 
 async function main() {
