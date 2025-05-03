@@ -143,7 +143,6 @@
         <button type="button" class="btn btn-lg px-4 px-sm-5 my-2" id="suggestionBtn">Generate Message</button>
       </div>
 
-
       <!-- Create Message Button -->
       <div class="text-center">
         <button type="button" class="btn btn-lg px-4 px-sm-5" id="createBtn">Create My Message</button>
@@ -191,7 +190,7 @@
         })
         .catch(err => {
           console.error("Error:", err);
-          alert("Gagal mengambil pesan dari DeepSeek API");
+          document.getElementById("messageInput").value = "Kasih sayangmu abadi, Ibu, pelita hidupku yang takkan pernah padam; Selamat Hari Ibu!";
         });
     });
 

@@ -11,9 +11,34 @@ app.post('/generate-message', async (req, res) => {
     const prompt = req.body.prompt || "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja.";
 
     try {
-        const response = await axios.post("https://api.deepseek.com/", {
-            prompt: prompt,
-            max_tokens: 120,
+        const response = await axios.post("https://api.deepseek.com", {
+            messages: [
+                {
+                    role: "system",
+                    content: "You are a helpful assistant"
+                },
+                {
+                    role: "user",
+                    content: "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja."
+                }
+            ],
+            model: "deepseek-chat",
+            frequency_penalty: 0,
+            max_tokens: 2048,
+            presence_penalty: 0,
+            response_format: {
+                type: "text"
+            },
+            stop: null,
+            stream: false,
+            stream_options: null,
+            temperature: 1,
+            top_p: 1,
+            tools: null,
+            tool_choice: "none",
+            logprobs: false,
+            top_logprobs: null
+
         }, {
             headers: {
                 "Authorization": "Bearer sk-ecebf4058eb244a48e665948a75e8808",
