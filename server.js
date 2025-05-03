@@ -1,10 +1,12 @@
 import OpenAI from "openai";
 import express from 'express';
 import axios from 'axios';
+import cors from 'cors';
 
 const app = express();
 const port = 5500;
 
+app.use(cors());
 app.use(express.json());
 
 async function generateMessage(prompt) {
@@ -18,8 +20,9 @@ async function generateMessage(prompt) {
                 {
                     role: "user",
                     content: prompt
-                }
+                },
             ],
+            "model": "deepseek-chat",
         }, {
             headers: {
                 "Authorization": "Bearer sk-4dc49edb7df742fcba235616b925b4ad",
@@ -27,7 +30,7 @@ async function generateMessage(prompt) {
             }
         });
 
-        return response.data?.choices?.[0]?.message?.content || "Kasih sayangmu abadi, Ibu, pelita hidupku yang takkan pernah padam; Selamat Hari Ibu!";
+        return response.data?.choices?.[0]?.message?.content || "Kasih sayangmu abadi, Ibu. pelita hidupku yang takkan pernah padam. Selamat Hari Ibu! ❤";
     } catch (error) {
         console.error("Error:", error);
         throw new Error("AI Error coy");
@@ -63,4 +66,4 @@ async function main() {
     console.log(completion.choices[0].message.content);
 }
 
-main();
+// main();
