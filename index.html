@@ -1,180 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mother's Day</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <style>
-      body {
-        background-color: #fff1ee;
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-        /* font-family: Arial, Helvetica, sans-serif; */
-        /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
-      }
-      .top-image {
-        top: 10;
-        right: 0;
-        max-width: 100%;
-        width: 550px;
-        pointer-events: none;
-      }
 
-      .bottom-image {
-        bottom: 0;
-        left: 0;
-        max-width: 100%;
-        width: 550px;
-        pointer-events: none;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mother's Day</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff1ee;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      font-family: "Gamja Flower", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      /* font-family: Arial, Helvetica, sans-serif; */
+      /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    }
 
-      .content {
-        padding-top: 50px;
-        /* margin: auto; */
-      }
+    .top-image {
+      top: 10;
+      right: 0;
+      max-width: 100%;
+      width: 550px;
+      pointer-events: none;
+    }
 
-      #simpleText {
-        font-size: 20px;
-      }
+    .bottom-image {
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+      width: 550px;
+      pointer-events: none;
+    }
 
-      .msg {
-        /* background-color: #fe5f77; */
-        border: 1px solid #fe5f77;
-        /* color: #fceae8; */
-        color: #eb8997;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 5px;
-        margin-bottom: 10px;
-        font-size: 20px;
-      }
+    .content {
+      padding-top: 50px;
+      /* margin: auto; */
+    }
 
-      .form {
-        width: 50%;
-        margin: auto;
-      }
+    #simpleText {
+      font-size: 20px;
+    }
 
-      .form-control::placeholder {
-        opacity: 50%;
-      }
+    .msg {
+      background-color: #fe5f77;
+      border: 1px solid #fe5f77;
+      /* color: #fceae8; */
+      color: #eb8997;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
 
-      .words {
-        height: 175px;
-      }
+    .form {
+      width: 50%;
+      margin: auto;
+    }
 
-      .btn {
-        background-color: #fe5f77;
-        color: #fceae8;
-      }
+    .form-control::placeholder {
+      opacity: 50%;
+    }
 
-      .btn:hover {
-        background-color: #5d7461;
-        color: #ffffff;
-      }
+    .words {
+      height: 175px;
+    }
 
-      .footer {
-        font-size: small;
-      }
+    .btn {
+      background-color: #fe5f77;
+      color: #fceae8;
+    }
 
-      #creator {
-        margin-top: 5px;
-        font-size: 15px;
-      }
+    .btn:hover {
+      background-color: #5d7461;
+      color: #ffffff;
+    }
 
-      .momCard {
-        margin: auto;
-        margin-top: 30px;
-        width: 50%;
-        border: 2px solid #fabdbd;
-        border-radius: 8px;
-        background-color: #ffffff;
-      }
+    .footer {
+      font-size: small;
+    }
 
-      .textContent {
-        font-weight: 400;
-        font-family: Arial, sans-serif;
-        white-space: pre-line;
-      }
+    #creator {
+      margin-top: 5px;
+      font-size: 15px;
+    }
 
-      #downloadBtn {
-        margin-top: 15px;
-      }
+    .momCard {
+      margin: auto;
+      margin-top: 30px;
+      width: 50%;
+      border: 2px solid #fabdbd;
+      border-radius: 8px;
+      background-color: #ffffff;
+    }
 
-      #cardToCapture {
-        padding: 20px;
-        background-color: #ffffff;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container min-vh-100 position-relative">
-      <img src="Assets/Top frame.png" class="top-image position-fixed" alt="Top frame" />
-      <img src="Assets/Bottom frame.png" class="bottom-image position-fixed" alt="Bottom frame" />
-      <div class="content justify-content-center align-items-center text-center">
-        <h2 class="display-4 fw-bold mb-1">Happy Mother's Day <i class="bi bi-heart-fill text-danger fs-1"></i></h2>
-        <p id="simpleText">To the strongest women in the world!</p>
-        <!-- <a href="#" class="msg text-decoration-none fw-bold p-2">Write a message</a> -->
-        <a href="#" class="msg text-decoration-none fw-bold p-2">Your Message <i class="bi bi-envelope ms-2"></i></a>
-        <!-- <h2 class="display-6 fw-bold">Your Message</h2> -->
-        <div class="form py-3">
-          <input type="text" class="form-control mb-2" id="nameInput" placeholder="Your name" />
-          <!-- <input type="text" class="words form-control" placeholder="Your message" /> -->
+    .textContent {
+      font-weight: 400;
+      font-family: "Gamja Flower", sans-serif;
+      white-space: pre-line;
+    }
+
+    #downloadBtn {
+      margin-top: 15px;
+    }
+
+    #cardToCapture {
+      padding: 20px;
+      background-color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container min-vh-100 position-relative">
+    <img src="Assets/Top frame.png" class="top-image position-fixed" alt="Top frame" />
+    <img src="Assets/Bottom frame.png" class="bottom-image position-fixed" alt="Bottom frame" />
+    <div class="content justify-content-center align-items-center text-center">
+      <h2 class="display-4 fw-bold mb-1">Happy Mother's Day <i class="bi bi-heart-fill text-danger fs-1"></i></h2>
+      <p id="simpleText">To the strongest women in the world!</p>
+      <!-- <a href="#" class="msg text-decoration-none fw-bold p-2">Write a message</a> -->
+      <!-- <a href="#" class="msg text-decoration-none fw-bold p-2">Your Message <i class="bi bi-envelope ms-2"></i></a> -->
+      <!-- <h2 class="display-6 fw-bold">Your Message</h2> -->
+      <div class="form w-100" style="max-width: 600px; margin: auto;">
+        <div class="mb-2 text-start">
+          <label for="nameInput" class="form-label">Sender name:</label>
+          <input type="text" class="form-control" id="nameInput" placeholder="Your name" />
+        </div>
+        <div class="mb-3 text-start">
+          <label for="messageInput" class="form-label">Message:</label>
           <textarea id="messageInput" class="words form-control" placeholder="Your message"></textarea>
         </div>
-        <button type="button" class="btn btn-lg px-5 my-1" id="createBtn">Create My Message</button>
-        <div class="momCard pb-2 text-start">
-          <div class="card-content" id="cardToCapture">
-            <h4>Dear Mom,</h4>
-            <p class="textContent" id="displayMessage">You are the best mom in the world! We love you always!</p>
-            <p class="textContentFrom my-1" id="displayName">- Your kids!</p>
-          </div>
-          <div class="text-center">
-            <button id="downloadBtn" class="btn btn-lg px-5 mb-3">Download Message</button>
-          </div>
+      </div>
+
+      <!-- Suggestion Button -->
+      <div class="text-center my-2">
+        <button type="button" class="btn btn-lg px-4 px-sm-5 my-2" id="suggestionBtn">Generate Message</button>
+      </div>
+
+      <!-- Create Message Button -->
+      <div class="text-center">
+        <button type="button" class="btn btn-lg px-4 px-sm-5" id="createBtn">Create My Message</button>
+      </div>
+
+      <!-- Message Card -->
+      <div class="momCard pb-2 text-start mx-auto my-3 px-3 px-sm-4 w-100" style="max-width: 600px;">
+        <div class="card-content" id="cardToCapture">
+          <h4>Dear Mom,</h4>
+          <p class="textContent" id="displayMessage">You are the best mom in the world! We love you always!</p>
+          <p class="textContentFrom my-1" id="displayName">- Your kids!</p>
         </div>
-        <div class="footer mt-3">Made with <i class="bi bi-heart-fill text-danger"></i> for the most precious mom</div>
-        <div class="creator">
-          <p id="creator">- JM & CM -</p>
+        <div class="text-center">
+          <button id="downloadBtn" class="btn btn-lg px-4 px-sm-5 mb-3">Download Message</button>
         </div>
       </div>
+
+      <!-- Footer -->
+      <div class="footer mt-3 text-center small px-2">
+        <b>Made with</b> <i class="bi bi-heart-fill text-danger"></i> <b>for the most precious mom</b>
+      </div>
+      <div class="creator text-center">
+        <p id="creator">- JM, CM, and KR -</p>
+      </div>
+
     </div>
-    <script>
-      document.getElementById("createBtn").addEventListener("click", function () {
-        const name = document.getElementById("nameInput").value;
-        const message = document.getElementById("messageInput").value;
+  </div>
+  <script>
+    document.getElementById('suggestionBtn').addEventListener('click', function () {
+      const prompt = "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja."
 
-        if (!name || !message) {
-          alert("Please enter both your name and message");
-          return;
-        }
-
-        // Update the card with user's message
-        document.getElementById("displayMessage").textContent = message;
-        document.getElementById("displayName").textContent = "- " + name;
-
-        // Show the card
-        // document.querySelector(".momCard").style.display = "block";
-      });
-
-      document.getElementById("downloadBtn").addEventListener("click", function () {
-        const card = document.querySelector("#cardToCapture");
-
-        html2canvas(card, {
-          backgroundColor: '#ffffff',
-          scale: 2,
-          logging: false,
-          useCORS: true
-        }).then((canvas) => {
-          const link = document.createElement("a");
-          link.download = "mothers-day-message.png";
-          link.href = canvas.toDataURL("image/png");
-          link.click();
+      fetch("http://localhost:5500/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt: prompt
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          const message = data?.message || "Kasih sayangmu abadi, Ibu, pelita hidupku yang takkan pernah padam; Selamat Hari Ibu!";
+          document.getElementById("messageInput").value = message;
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          document.getElementById("messageInput").value = "Kasih sayangmu abadi, Ibu, pelita hidupku yang takkan pernah padam; Selamat Hari Ibu!";
         });
+    });
+
+    document.getElementById("createBtn").addEventListener("click", function () {
+      const name = document.getElementById("nameInput").value;
+      const message = document.getElementById("messageInput").value;
+
+      if (!name || !message) {
+        alert("Please enter both your name and message");
+        return;
+      }
+
+      // Update the card with user's message
+      document.getElementById("displayMessage").textContent = message;
+      document.getElementById("displayName").textContent = "- " + name;
+
+      // Show the card
+      // document.querySelector(".momCard").style.display = "block";
+    });
+
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      const card = document.querySelector("#cardToCapture");
+
+      html2canvas(card, {
+        backgroundColor: '#ffffff',
+        scale: 2,
+        logging: false,
+        useCORS: true
+      }).then((canvas) => {
+        const link = document.createElement("a");
+        link.download = "mothers-day-message.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
       });
-    </script>
-    <!-- Add html2canvas library -->
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-  </body>
+    });
+  </script>
+  <!-- Add html2canvas library -->
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
