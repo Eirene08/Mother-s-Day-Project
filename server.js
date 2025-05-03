@@ -35,7 +35,7 @@ async function generateMessage(prompt) {
 }
 
 app.post('/chat/completions', async (req, res) => {
-    const prompt = req.body.prompt || "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja.";
+    const prompt = req.body.prompt || "Buatkan ucapan Happy Mother's Day yang menyentuh hati dan hanya satu kalimat saja";
     
     try {
         const message = await generateMessage(prompt);
