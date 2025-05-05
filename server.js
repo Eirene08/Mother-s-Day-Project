@@ -2,6 +2,8 @@ import OpenAI from "openai";
 import express from 'express';
 import axios from 'axios';
 import cors from 'cors';
+import FontFaceObserver from 'fontfaceobserver';
+
 
 const app = express();
 const port = 5500;

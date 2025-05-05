@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mother's Day</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #fff1ee;
@@ -97,7 +97,7 @@
       width: 50%;
       border: 2px solid #fabdbd;
       border-radius: 8px;
-      background-color: #ffffff;
+      background-color: #fbf9e4;
     }
 
     .textContent {
@@ -112,7 +112,7 @@
 
     #cardToCapture {
       padding: 20px;
-      background-color: #ffffff;
+      background-color: #fbf9e4;
     }
   </style>
 </head>
@@ -151,9 +151,13 @@
       <!-- Message Card -->
       <div class="momCard pb-2 text-start mx-auto my-3 px-3 px-sm-4 w-100" style="max-width: 600px;">
         <div class="card-content" id="cardToCapture">
-          <h4>Dear Mom,</h4>
-          <p class="textContent" id="displayMessage">You are the best mom in the world! We love you always!</p>
-          <p class="textContentFrom my-1" id="displayName">- Your kids!</p>
+          <h2>Happy Mother's Day</h2>
+          <div class="card-body">
+            <h4>Dear Mom,</h4>
+            <p class="textContent" id="displayMessage">You are the best mom in the world! We love you always!</p>
+            <p class="textContentFrom my-1" id="displayName">- Your kids!</p>
+          </div>
+          
         </div>
         <div class="text-center">
           <button id="downloadBtn" class="btn btn-lg px-4 px-sm-5 mb-3">Download Message</button>
@@ -214,16 +218,39 @@
     document.getElementById("downloadBtn").addEventListener("click", function () {
       const card = document.querySelector("#cardToCapture");
 
-      html2canvas(card, {
-        backgroundColor: '#ffffff',
-        scale: 2,
-        logging: false,
-        useCORS: true
-      }).then((canvas) => {
-        const link = document.createElement("a");
-        link.download = "mothers-day-message.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
+      //Make sure font is loaded before capturing
+      const font = new FontFaceObserver("Gamja Flower");
+
+      //If the font is loaded, then capture the card
+      font.load().then(() => {
+        console.log('Font berhasil dimuat!');
+        
+        html2canvas(card, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          logging: false,
+          useCORS: true
+        }).then((canvas) => {
+          const link = document.createElement("a");
+          link.download = "mothers-day-message.png";
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        });
+      }).catch(function (error) {
+        // Jika font gagal dimuat, akan ditangani di sini
+        console.error('Font gagal dimuat', error);
+        // Fallback to default font if the custom font fails to load
+        html2canvas(card, {
+          backgroundColor: '#ffffff',
+          scale: 2,
+          logging: false,
+          useCORS: true,
+        }).then((canvas) => {
+          const link = document.createElement("a");
+          link.download = "mothers-day-message.png";
+          link.href = canvas.toDataURL("image/png");
+          link.click();
+        });
       });
     });
   </script>
@@ -232,6 +259,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.1.0/fontfaceobserver.standalone.js"></script>
+
 </body>
 
 </html>
