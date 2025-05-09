@@ -22,7 +22,13 @@
       /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
     }
 
+    .container {
+      position: relative;
+      z-index: 0;
+    }
+
     .top-image {
+      position: fixed;
       top: 10;
       right: 0;
       max-width: 100%;
@@ -32,6 +38,7 @@
     }
 
     .bottom-image {
+      position: fixed;
       bottom: 0;
       left: 0;
       max-width: 100%;
@@ -39,10 +46,11 @@
       pointer-events: none;
       z-index: -1;
     }
-
+    
     .content {
       padding-top: 50px;
       /* margin: auto; */
+      z-index: 0;
     }
 
     #simpleText {
